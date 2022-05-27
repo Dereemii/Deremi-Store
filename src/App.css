@@ -3,3 +3,10 @@ nav ul {
   list-style: none;
   justify-content: space-evenly;
 }
+@media (min-width: 1281px) {
+
+  .mainImage{
+      width:  100%;
+  }
+
+}
