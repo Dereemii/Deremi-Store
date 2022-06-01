@@ -3,10 +3,40 @@ nav ul {
   list-style: none;
   justify-content: space-evenly;
 }
+
 @media (min-width: 1281px) {
 
-  .mainImage{
-      width:  100%;
+  .mainImage {
+    width: 100%;
   }
 
+}
+
+/* ----Item Count --- */
+.cardComponent {
+  border: solid 1px black;
+  width: 150px;
+  padding: 1rem;
+  text-align: center;
+  margin: auto
+}
+
+.counterCard {
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addToCart {
+  border: solid 1.5px black;
+  padding: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.counterCard span {
+  margin: 0.5rem 0.2rem
 }
