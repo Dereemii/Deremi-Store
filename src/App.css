@@ -40,3 +40,74 @@ nav ul {
 .counterCard span {
   margin: 0.5rem 0.2rem
 }
+
+.cardComponent {
+  border: solid 1px black;
+  width: 150px;
+  padding: 1rem;
+  text-align: center;
+  margin: auto;
+}
+
+.counterCard {
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.addToCart {
+  border: solid 1.5px black;
+  padding: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+}
+
+.counterCard span {
+  margin: 0.5rem 0.2rem;
+}
+
+.stockOver {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.imgCard {
+  width: 150px;
+  height: 150px;
+}
+
+.imgCard img {
+  width: inherit;
+}
+
+.imgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.imgContainer span {
+  font-size: 1.5rem;
+}
+
+.mainImage {
+  margin: 1rem;
+}
+
+.productsContainer {
+  display: flex;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  /* CSS */
+  .productsContainer {
+    flex-direction: column;
+  }
+}

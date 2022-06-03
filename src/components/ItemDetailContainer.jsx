@@ -1,14 +1,11 @@
-
-import ItemList from './ItemList';
 import { useEffect, useState } from "react";
-import ProductsCatalogue from "../ProductsCatalogue.json";
+import ProductsCatalogue from "../../ProductsCatalogue.json";
+import ItemDetail from "./ItemDetail";
 
+const ItemDetailContainer = () => {
 
-const ItemListContainer = (props) => {
-
-    const [productos, setProductos] = useState([]);
-
-    const getData = (data) =>
+    const [item, setItem] = useState([]);
+    const getItem = (data) =>
         new Promise((resolve, reject) => {
             setTimeout(() => {
                 if (data) {
@@ -20,18 +17,19 @@ const ItemListContainer = (props) => {
         });
 
     useEffect(() => {
-        getData(ProductsCatalogue)
-            .then((res) => setProductos(res))
+        getItem(ProductsCatalogue)
+            .then((res) => setItem(res))
             .catch((err) => console.log(err));
 
     }, []);
 
     return (
         <>
-            <h1>Hey, Wellcome {props.person}</h1>
-            <ItemList productos={productos} />
+            <h2>Product Detail Example</h2>
+            <ItemDetail item={item} />
+
         </>
     );
 }
 
-export default ItemListContainer;
+export default ItemDetailContainer;

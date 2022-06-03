@@ -1,45 +1,41 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinus, faPlus, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { useState, useEffect } from 'react';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 
-const ItemCount = ({ initial, stock }) => {
+const ItemCount = ({ stock }) => {
 
-    const [count, setCount] = useState(parseInt(initial))
+    const [count, setCount] = useState(1)
 
-    const handleSub = () => {
-        setCount(parseInt(count - 1))
-    }
-    const handleSum = () => {
-        setCount(parseInt(count + 1))
-    }
-
-    useEffect(() => {
-        if (count > parseInt(stock)) {
-            console.log("mayor a 5")
-        } else if (count <= 0) {
-            console.log("menor o igual a 0")
+    const onDecrease = () => {
+        if (count >= 1) {
+            setCount(count - 1)
         }
-    }, [count, stock])
+    }
+
+    const onIncrease = () => {
+        if (count < stock) {
+            setCount(count + 1)
+        }
+    }
 
     return (
         <>
-            <div className="cardComponent">
-                <div className="imgCard">
-                    <img src="https://via.placeholder.com/150" alt="" />
-                </div>
-                <h3>Product Name</h3>
-                <div className="counterCard">
+            <div className="counterCard">
+                <div>
                     <span>
-                        <button onClick={handleSub} ><FontAwesomeIcon icon={faMinus} /></button>                    </span>
+                        <button onClick={onDecrease} ><FontAwesomeIcon icon={faMinus} /></button>
+
+                    </span>
                     <span>{count}</span>
                     <span>
-                        <button onClick={handleSum}><FontAwesomeIcon icon={faPlus} /></button>
+                        <button onClick={onIncrease}><FontAwesomeIcon icon={faPlus} /></button>
                     </span>
                 </div>
-                <div className="addToCart">Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></div>
+                <div style={{ visibility: count >= stock ? 'visible' : 'hidden' }} className="stockOver">Stock máximo alcanzado</div>
             </div>
+
         </>
     );
 }
 
-export default ItemCount; 
+export default ItemCount;
