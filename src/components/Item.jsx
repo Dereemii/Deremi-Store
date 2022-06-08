@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import ItemCount from './ItemCount';
+import { Link } from 'react-router-dom';
+
 
 const Item = ({ productos }) => {
-
-    console.log(productos.photo)
 
     return (
         <>
@@ -17,7 +17,11 @@ const Item = ({ productos }) => {
                 <ItemCount stock={productos.stock} initial={1} />
                 <div className="addToCart">Agregar al carrito <FontAwesomeIcon icon={faShoppingCart} /></div>
                 <p className="stockAvailable">{productos.stock} unidades disponibles</p>
-                <button>Ver detalles</button>
+
+                <Link
+                    to={`/item/${productos.id}`}>
+                    <button>Ver detalles</button>
+                </Link>
             </div>
         </>
     );

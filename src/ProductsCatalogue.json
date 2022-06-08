@@ -12,13 +12,15 @@
         "price": 5000,
         "id": 2,
         "photo": "/img/aisha.png",
-        "stock": 4
+        "stock": 4,
+        "description": "Peluche de Aisha es un extraterrestre"
     },
     {
         "name": "Snorlax",
         "price": 20000,
         "id": 3,
         "photo": "/img/snorlax.jpg",
-        "stock": 8
+        "stock": 8,
+        "description": "Peluche de snorlax"
     }
 ]

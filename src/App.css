@@ -111,3 +111,23 @@ nav ul {
     flex-direction: column;
   }
 }
+
+.itemDetail {
+  display: flex;
+  border: solid 1px black;
+  margin: 1rem;
+}
+
+.itemDetail img {
+  width: 250px;
+}
+
+.itemDetailContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.addToCart {
+  width: 120px;
+  margin: auto;
+}

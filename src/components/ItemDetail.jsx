@@ -1,7 +1,7 @@
-import './ItemDetail.css';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import ItemCount from '../ItemCount/ItemCount';
+import ItemCount from './ItemCount';
 
 const ItemDetail = ({ item }) => {
 
