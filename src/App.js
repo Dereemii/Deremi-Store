@@ -9,10 +9,9 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar />
-
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
-          <Route exact path="/item/:itemId" element={<ItemDetailContainer />} />
+          <Route path="/item/:itemId" element={<ItemDetailContainer />} />
           <Route path="*" element={<Navigate to={"/"} />} />
         </Routes>
       </BrowserRouter>

@@ -1,26 +1,47 @@
 [
     {
+        "id": "1",
         "name": "MyMelody",
-        "price": 10000,
-        "id": 1,
+        "price": "10000",
+        "category": "sanrio",
         "photo": "/img/mymelody.png",
         "stock": 7,
         "description": "Peluche de conejita MyMelody, relleno suave, original de Sanrio, no indicado para secadora de ropa."
     },
     {
+        "id": "2",
         "name": "Aisha",
-        "price": 5000,
-        "id": 2,
+        "price": "5000",
+        "category": "neopets",
         "photo": "/img/aisha.png",
         "stock": 4,
-        "description": "Peluche de Aisha es un extraterrestre"
+        "description": "Peluche de Aisha, original de Neopets, tiene más de 10 años en el mercado"
     },
     {
+        "id": "3",
         "name": "Snorlax",
-        "price": 20000,
-        "id": 3,
+        "price": "20000",
+        "category": "pokemon",
         "photo": "/img/snorlax.jpg",
         "stock": 8,
-        "description": "Peluche de snorlax"
+        "description": "Peluche de Snorlax, tamaño grande, sirve para poder dormir sobre él"
+    },
+    {
+        "id": "4",
+        "name": "Detective Pikachu",
+        "price": "21000",
+        "category": "pokemon",
+        "photo": "/img/detective-pika.jpg",
+        "stock": 6,
+        "description": "Peluche de detective Pikachu, sonrie y se mueve"
+    },
+    {
+        "id": "5",
+        "name": "Kuromi Maid",
+        "price": "15000",
+        "category": "sanrio",
+        "photo": "/img/kuromi-maid.jpg",
+        "stock": 4,
+        "description": "Kuromi versión maid"
     }
 ]
