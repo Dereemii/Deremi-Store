@@ -2,10 +2,11 @@
 import ItemList from './ItemList';
 import { useEffect, useState } from "react";
 import ProductsCatalogue from "../ProductsCatalogue.json";
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = (props) => {
 
-
+    const { categoryId } = useParams()
     const [productos, setProductos] = useState([]);
 
     const getData = (data) =>
@@ -16,19 +17,28 @@ const ItemListContainer = (props) => {
                 } else {
                     reject("No se encontro nada");
                 }
-            }, 2000);
+            }, 1000);
         });
 
     useEffect(() => {
         getData(ProductsCatalogue)
-            .then((res) => setProductos(res))
+            .then((resp) => {
+                if (!categoryId) {
+                    setProductos(resp)
+                } else {
+                    setProductos(resp.filter((item) => item.category === categoryId))
+                }
+                setProductos(resp)
+            })
             .catch((err) => console.log(err));
 
-    }, []);
+    }, [categoryId]);
+
 
     return (
         <>
-            <h1>Hey, Wellcome {props.person}</h1>
+            <h1> {categoryId ? `Estás en la categoría ${categoryId}` : 'Bienvenido a la tienda'}</h1>
+
             <ItemList productos={productos} />
         </>
     );
