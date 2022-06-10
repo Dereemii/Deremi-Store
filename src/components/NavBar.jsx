@@ -8,9 +8,9 @@ const NavBar = () => {
                 <Link to="/">
                     <li>Logo - Home</li>
                 </Link>
-                <Link to={"categorias/pokemon"}>Pokemon</Link>
-                <Link to={"categorias/neopets"}>Neopets</Link>
-                <Link to={"categorias/sanrio"}>Sanrio</Link>
+                <Link to={"/categorias/pokemon"}>Pokemon</Link>
+                <Link to={"/categorias/neopets"}>Neopets</Link>
+                <Link to={"/categorias/sanrio"}>Sanrio</Link>
 
                 <CartWidget />
             </ul>

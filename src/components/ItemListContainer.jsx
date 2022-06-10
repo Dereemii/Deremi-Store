@@ -27,8 +27,9 @@ const ItemListContainer = (props) => {
                     setProductos(resp)
                 } else {
                     setProductos(resp.filter((item) => item.category === categoryId))
+                    let prodfilt = resp.filter((item) => item.category === categoryId)
+                    console.log(prodfilt)
                 }
-                setProductos(resp)
             })
             .catch((err) => console.log(err));
 
