@@ -10,9 +10,20 @@ import { useState } from 'react';
 function App() {
 
   const [cart, setCart] = useState([])
+  console.log()
+  
+  const addItem = (item) => {
+    setCart([...cart, item]);
+    alert(`añadiste ${item.quantity} de ${item.name} a tu carrito`)
+  };
+
+  const isInCart = (id)=>{
+    return cart.some((prod)=>prod.id===id)
+  }
+
   return (
 
-    <CartContext.Provider value = {{ cart, setCart}}>
+    <CartContext.Provider value = {{ cart, setCart, addItem, isInCart}}>
 
       <BrowserRouter>
         <NavBar />
