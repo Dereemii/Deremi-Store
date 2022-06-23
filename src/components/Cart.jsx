@@ -4,8 +4,13 @@ import { Link } from "react-router-dom"
  
 const Cart = () => {
 
-    const { cart } = useContext(CartContext)
+    const { cart, setCart } = useContext(CartContext)
     console.log(cart)
+
+    const emptyCart = () =>{
+        setCart([])
+     }
+
     return (
         <>
             <h2>Resumen del carrito </h2>
@@ -29,12 +34,14 @@ const Cart = () => {
                             <p>Cantidad: {item.quantity}</p>
                             <h6>Precio: $ {item.totalPrice}</h6>
                         </div>
+                        <div className="miniCart_trash">🗑️</div>
                     </div>
+                    
                        <hr></hr>
                     </div>
                 ))
             }
-
+            <button onClick={emptyCart}>vaciar carrito</button>
         </>
     );
 }

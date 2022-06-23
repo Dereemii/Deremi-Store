@@ -10,8 +10,7 @@ import { useState } from 'react';
 function App() {
 
   const [cart, setCart] = useState([])
-  console.log()
-  
+
   const addItem = (item) => {
     if( item.quantity === 0){
       alert(`Por favor añade productos a tu carrito`)

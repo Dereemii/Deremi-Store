@@ -23,13 +23,12 @@ const ItemDetail = ({ item, name, description, stock, photo, price }) => {
             totalPrice: totalPrice,
         }
 
-        isInCart(item.id)===false ?
-        addItem(itemToCart)
-       
-       :
-       alert('ya compraste esto intenta comprando algo más')
-       setShowCount(false)
-              
+        isInCart(item.id) === false ?
+            addItem(itemToCart)
+            :
+            alert('ya compraste esto intenta comprando algo más')
+        setShowCount(false)
+
     }
 
 

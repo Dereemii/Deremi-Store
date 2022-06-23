@@ -132,8 +132,13 @@ nav ul {
   margin: auto;
 }
 .miniCartContainer{
-  display: flex
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .miniCart_right img{
   width: 100px;
+}
+.miniCart_trash{
+  cursor: pointer;
 }
