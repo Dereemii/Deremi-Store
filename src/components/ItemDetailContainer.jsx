@@ -37,6 +37,7 @@ const ItemDetailContainer = () => {
             <div className="itemDetailContainer">
                 {item ? (
                     <ItemDetail
+                        item={item}
                         id={item.id}
                         photo={item.photo}
                         name={item.name}

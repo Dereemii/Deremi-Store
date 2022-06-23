@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus,  faShoppingCart  } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 
-const ItemCount = ({ stock, onAdd, setCounter }) => {
+const ItemCount = ({ stock, onAdd, setCounter, handleAddToCart }) => {
 
     const [count, setCount] = useState(1)
 
