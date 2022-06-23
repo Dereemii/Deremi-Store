@@ -1,3 +1,6 @@
+*{
+  text-decoration: none;
+}
 nav ul {
   display: flex;
   list-style: none;

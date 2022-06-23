@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import ProductsCatalogue from "../ProductsCatalogue.json";
 import { useParams } from 'react-router-dom';
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
 
     const { categoryId } = useParams()
     const [productos, setProductos] = useState([]);
@@ -17,7 +17,7 @@ const ItemListContainer = (props) => {
                 } else {
                     reject("No se encontro nada");
                 }
-            }, 1000);
+            }, 2000);
         });
 
     useEffect(() => {

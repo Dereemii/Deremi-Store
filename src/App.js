@@ -4,38 +4,13 @@ import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import Cart from './components/Cart'
-import { CartContext } from './context/CartContext'
-import { useState } from 'react';
+import CartProvider from './context/CartContext';
 
 function App() {
 
-  const [cart, setCart] = useState([])
-
-  const addItem = (item) => {
-    if( item.quantity === 0){
-      alert(`Por favor añade productos a tu carrito`)
-  } else{
-    setCart([...cart, item]);
-    alert(`añadiste ${item.quantity} de ${item.name} a tu carrito`)
-  }
-  };
-
-  const isInCart = (id)=>{
-    return cart.some((prod)=>prod.id===id)
-  }
-
-  const emptyCart = () =>{
-    setCart([])
- }
-
-  const priceToPay = () =>{
-    return cart.reduce((acc, prod)=> acc += (prod.price * prod.quantity), 0)
-  }
-
   return (
 
-    <CartContext.Provider value = {{ cart, setCart, addItem, isInCart, emptyCart, priceToPay}}>
-
+    <CartProvider>
       <BrowserRouter>
         <NavBar />
         <Routes>
@@ -46,8 +21,7 @@ function App() {
           <Route path="*" element={<Navigate to={"/"} />} />
         </Routes>
       </BrowserRouter>
-
-    </CartContext.Provider>
+    </CartProvider>
 
   );
 }
