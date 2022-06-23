@@ -24,9 +24,17 @@ function App() {
     return cart.some((prod)=>prod.id===id)
   }
 
+  const emptyCart = () =>{
+    setCart([])
+ }
+
+  const priceToPay = () =>{
+    return cart.reduce((acc, prod)=> acc += (prod.price * prod.quantity), 0)
+  }
+
   return (
 
-    <CartContext.Provider value = {{ cart, setCart, addItem, isInCart}}>
+    <CartContext.Provider value = {{ cart, setCart, addItem, isInCart, emptyCart, priceToPay}}>
 
       <BrowserRouter>
         <NavBar />

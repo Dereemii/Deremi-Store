@@ -4,12 +4,7 @@ import { Link } from "react-router-dom"
  
 const Cart = () => {
 
-    const { cart, setCart } = useContext(CartContext)
-    console.log(cart)
-
-    const emptyCart = () =>{
-        setCart([])
-     }
+    const { cart, emptyCart, priceToPay } = useContext(CartContext)
 
     return (
         <>
@@ -32,7 +27,7 @@ const Cart = () => {
                         <div className="miniCart_left">
                             <h5>{item.name}</h5>
                             <p>Cantidad: {item.quantity}</p>
-                            <h6>Precio: $ {item.totalPrice}</h6>
+                            <h6>Precio: {Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' }).format(item.totalPrice)}</h6>
                         </div>
                         <div className="miniCart_trash">🗑️</div>
                     </div>
@@ -41,6 +36,7 @@ const Cart = () => {
                     </div>
                 ))
             }
+            <div>Precio total {Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' }).format(priceToPay())}</div>
             <button onClick={emptyCart}>vaciar carrito</button>
         </>
     );
