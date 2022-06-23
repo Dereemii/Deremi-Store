@@ -13,8 +13,12 @@ function App() {
   console.log()
   
   const addItem = (item) => {
+    if( item.quantity === 0){
+      alert(`Por favor añade productos a tu carrito`)
+  } else{
     setCart([...cart, item]);
     alert(`añadiste ${item.quantity} de ${item.name} a tu carrito`)
+  }
   };
 
   const isInCart = (id)=>{

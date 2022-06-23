@@ -22,7 +22,8 @@ const ItemDetail = ({ item, name, description, stock, photo, price }) => {
             quantity: quantity,
             totalPrice: totalPrice,
         }
-        isInCart(item.id)===false?
+
+        isInCart(item.id)===false ?
         addItem(itemToCart)
        
        :
