@@ -1,14 +1,23 @@
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
-
+import { Link } from "react-router-dom"
+ 
 const Cart = () => {
 
     const { cart } = useContext(CartContext)
+    console.log(cart)
     return (
         <>
             <h2>Resumen del carrito </h2>
             <hr></hr>
             {
+                cart.length === 0 ? 
+                <div>
+                No hay productos en tu carrito 
+                <Link to={`/`}>Ir a comprar</Link>
+                </div>
+                
+                :
                 cart.map((item) => (
                     <div key={item.id}>
                     <div  className="miniCartContainer">
@@ -25,6 +34,7 @@ const Cart = () => {
                     </div>
                 ))
             }
+
         </>
     );
 }
