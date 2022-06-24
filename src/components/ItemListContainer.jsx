@@ -2,7 +2,7 @@
 import ItemList from './ItemList';
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../firebase/config';
 
 const ItemListContainer = () => {
@@ -14,8 +14,10 @@ const ItemListContainer = () => {
 
         //1.- Armar la referencia
         const productsRef = collection(db, "productos");
+        const q = categoryId ? query(productsRef, where("category", "==", "categoryId")) : productsRef
+        
         //2.- Llamar a firebase 
-        getDocs(productsRef)
+        getDocs(q)
             .then((resp)=>{
                 const newItems = resp.docs.map((doc)=>{
                     return{
@@ -23,7 +25,7 @@ const ItemListContainer = () => {
                         ...doc.data() /* Data: metodo de firestore */
                     }
                 });
-                console.log(newItems)
+                //console.log(newItems)
                 setProductos(newItems)
             })
 

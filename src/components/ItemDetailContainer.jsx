@@ -17,10 +17,7 @@ const ItemDetailContainer = () => {
             .then((resp) => {
                 setItem({ id: resp.id, ...resp.data()})
             })
-
     }, [itemId]);
-
-
 
     return (
         <>
