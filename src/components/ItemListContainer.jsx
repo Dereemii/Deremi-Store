@@ -1,37 +1,24 @@
 
 import ItemList from './ItemList';
 import { useEffect, useState } from "react";
-import ProductsCatalogue from "../ProductsCatalogue.json";
 import { useParams } from 'react-router-dom';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase/config';
 
 const ItemListContainer = () => {
 
     const { categoryId } = useParams()
     const [productos, setProductos] = useState([]);
 
-    const getData = (data) =>
-        new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if (data) {
-                    resolve(data);
-                } else {
-                    reject("No se encontro nada");
-                }
-            }, 2000);
-        });
-
     useEffect(() => {
-        getData(ProductsCatalogue)
-            .then((resp) => {
-                if (!categoryId) {
-                    setProductos(resp)
-                } else {
-                    setProductos(resp.filter((item) => item.category === categoryId))
-                    let prodfilt = resp.filter((item) => item.category === categoryId)
-                    console.log(prodfilt)
-                }
+
+        //1.- Armar la referencia
+        const productsRef = collection(db, "productos");
+        //2.- Llamar a firebase 
+        getDocs(productsRef)
+            .then((resp)=>{
+                setProductos(resp.docs.map((doc)=>doc.data()))
             })
-            .catch((err) => console.log(err));
 
     }, [categoryId]);
 
