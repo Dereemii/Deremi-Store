@@ -1,32 +1,23 @@
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-
-import ProductsCatalogue from "../ProductsCatalogue.json";
 import ItemDetail from "./ItemDetail";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase/config";
 
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState(null);
     const { itemId } = useParams();
 
-    const getItem = (data) =>
-        new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if (data) {
-                    resolve(data);
-                } else {
-                    reject('No se encontró nada');
-                }
-            }, 2000);
-        });
-
     useEffect(() => {
-        getItem(ProductsCatalogue)
-            .then((res) => {
-                setItem(res.find((details) => details.id === itemId));
+        //1.- armar la referencia
+        const docRef = doc(db, "productos", itemId)
+        //2.- llamar a firestore
+        getDoc(docRef)
+            .then((resp) => {
+                setItem({ id: resp.id, ...resp.data()})
             })
 
-            .catch((err) => console.log(err));
     }, [itemId]);
 
 

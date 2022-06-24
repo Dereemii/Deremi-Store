@@ -17,7 +17,14 @@ const ItemListContainer = () => {
         //2.- Llamar a firebase 
         getDocs(productsRef)
             .then((resp)=>{
-                setProductos(resp.docs.map((doc)=>doc.data()))
+                const newItems = resp.docs.map((doc)=>{
+                    return{
+                        id: doc.id,
+                        ...doc.data() /* Data: metodo de firestore */
+                    }
+                });
+                console.log(newItems)
+                setProductos(newItems)
             })
 
     }, [categoryId]);
@@ -27,7 +34,7 @@ const ItemListContainer = () => {
         <>
             <h1> {categoryId ? `Estás en la categoría ${categoryId}` : 'Bienvenido a la tienda'}</h1>
 
-            <ItemList productos={productos} />
+            <ItemList productos={productos}/>
         </>
     );
 }
